@@ -1,0 +1,16 @@
+# action.yml
+name: 'Compile'
+description: 'Compile code and record the completion time'
+inputs:
+  what-to-compile:  # id of input
+    description: 'What to compile'
+    required: true
+    default: 'main.c'
+outputs:
+  time: # id of output
+    description: 'The completion time of compilation'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.what-to-compile }}
